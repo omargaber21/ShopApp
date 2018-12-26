@@ -17,6 +17,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#B30d47a1"
+
             android:padding="10dp">
 
             <android.support.design.widget.FloatingActionButton

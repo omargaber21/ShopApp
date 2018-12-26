@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
                         String email = email_edittext.getText().toString();
 
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                        Intent i = new Intent(RegisterActivity.this, ProductsActivity.class);
+                        Intent i = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(i);
                         finish();
                         mReference.child("Users").child(user.getUid())

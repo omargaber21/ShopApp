@@ -1,16 +1,22 @@
 package com.example.omar.pushnpull;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -24,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ProductsActivity extends AppCompatActivity {
+public class ProductsActivity extends Fragment {
     ArrayList<Items> items;
     ListView listView;
     ProductsAdapter adapter;
@@ -33,17 +39,20 @@ public class ProductsActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference mReference;
     Button increment;
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+    }
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products);
-        listView=findViewById(R.id.listView);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+       View v=inflater.inflate(R.layout.activity_products,container,false);
+        listView=v.findViewById(R.id.listView);
         database = FirebaseDatabase.getInstance();
         mReference = database.getReference().child("items");
         ReadData();
-        toolbar=findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        setTitle("Online Shopping");
+
+        return v;
 
     }
 
@@ -56,8 +65,11 @@ public class ProductsActivity extends AppCompatActivity {
                     Items item = postSnapshot.getValue(Items.class);
                     items.add(item);
                 }
-                adapter=new ProductsAdapter(ProductsActivity.this,items);
-                listView.setAdapter(adapter);
+                if(getActivity()!=null){
+                    adapter=new ProductsAdapter(getActivity(),items);
+                    listView.setAdapter(adapter);
+                }
+
             }
 
             @Override
@@ -66,22 +78,5 @@ public class ProductsActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.sign_out_menu:
-                FirebaseAuth.getInstance().signOut();
-                Intent i = new Intent(ProductsActivity.this,StartActivity.class);
-                startActivity(i);
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
 }

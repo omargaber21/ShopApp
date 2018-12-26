@@ -63,27 +63,10 @@ FirebaseAuth mAuth;
     protected void onStart() {
         FirebaseUser currentUser=mAuth.getCurrentUser();
         if (currentUser != null) {
-            DatabaseReference reference=FirebaseDatabase.getInstance().getReference().child("Users").child(currentUser.getUid());
-            reference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    Users user=dataSnapshot.getValue(Users.class);
+            Intent seller=new Intent(StartActivity.this,MainActivity.class);
+            startActivity(seller);
+            finish();
 
-                    if(user.isAdmin()){
-
-                        Intent seller=new Intent(StartActivity.this,MainActivity.class);
-                        startActivity(seller);
-                        finish();
-                    }else{
-                        Intent customer=new Intent(StartActivity.this,ProductsActivity.class);
-                        startActivity(customer);
-                        finish();
-                    }
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                }
-            });
         }
 
 
@@ -101,7 +84,7 @@ FirebaseAuth mAuth;
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Intent i=new Intent(StartActivity.this,ProductsActivity.class);
+                                Intent i=new Intent(StartActivity.this,MainActivity.class);
                                 startActivity(i);
                                 finish();
                             } else {
@@ -131,7 +114,7 @@ FirebaseAuth mAuth;
 /*
   if(currentUser != null &&currentUser.getUid().equals("ZP9oYH5rScQNmLcwfHoUK2wZiqA2") ){
 
-                Intent seller=new Intent(StartActivity.this,MainActivity.class);
+                Intent seller=new Intent(StartActivity.this,AdminActivity.class);
                 startActivity(seller);
                 finish();
         }*/

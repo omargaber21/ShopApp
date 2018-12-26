@@ -27,6 +27,9 @@ public class ProductsAdapter extends ArrayAdapter<Items> {
     public ProductsAdapter(@NonNull Context context,  @NonNull List<Items> objects) {
         super(context, 0, objects);
     }
+
+
+
     private FirebaseDatabase database=FirebaseDatabase.getInstance();
     private DatabaseReference mReference=database.getReference("bag");
     @NonNull
