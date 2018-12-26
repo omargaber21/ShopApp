@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "455550094072",
+    "firebase_url": "https://pushandpull-428c9.firebaseio.com",
+    "project_id": "pushandpull-428c9",
+    "storage_bucket": "pushandpull-428c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455550094072:android:0dd0e033b609e551",
+        "android_client_info": {
+          "package_name": "com.example.omar.pushnpull"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "455550094072-c47tjjccmvn3sa2kaoqi70fagbca4snr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.omar.pushnpull",
+            "certificate_hash": "3f3faffa73fc19fc2473d8ef6c795371bb0837bf"
+          }
+        },
+        {
+          "client_id": "455550094072-9h8sho6s9m0a3snjg0n2gt3elgjq89e3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAshJI9KegQPkT0g8FOYArzKHRQUyOZd0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455550094072-9h8sho6s9m0a3snjg0n2gt3elgjq89e3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

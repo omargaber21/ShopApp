@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">OnlineSellers</string>
+    <string name="online_sellers"><![CDATA[Have a nice Time]]></string>
+    <string name="sign_out">تسجيل الخروج</string>
+    <string name="didnt_register_yet">didnt register yet?</string>
+    <string name="register_now">register now</string>
+    <string name="title_activity_nav__drawer">Nav_Drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+</resources>

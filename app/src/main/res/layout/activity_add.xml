@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="اسم الصنف"
+                android:textDirection="anyRtl"
+                android:id="@+id/item_name"
+                android:maxLength="150"
+                android:drawablePadding="8dp"
+                />
+        </android.support.design.widget.TextInputLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="20dp"
+
+           android:orientation="horizontal">
+
+           <android.support.design.widget.TextInputLayout
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+
+               >
+               <android.support.design.widget.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="السعر"
+                   android:textDirection="anyRtl"
+                   android:id="@+id/item_price"
+                   android:maxLength="4"
+                   android:drawablePadding="8dp"
+                   android:inputType="number"
+                   />
+
+           </android.support.design.widget.TextInputLayout>
+       </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="الكود"
+                    android:textDirection="anyRtl"
+                    android:maxLength="30"
+                    android:id="@+id/item_code"
+                    android:drawablePadding="8dp"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Small"
+                android:id="@+id/checkbox_smallSize"/>
+            <CheckBox
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1"                android:layout_height="wrap_content"
+                android:text="Medium"
+                android:id="@+id/checkbox_mediumSize"/>
+            <CheckBox
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1"                android:layout_height="wrap_content"
+                android:text="Large"
+                android:id="@+id/checkbox_LargeSize"/>
+            <CheckBox
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1"                android:layout_height="wrap_content"
+                android:text="XLarge"
+                android:id="@+id/checkbox_XlargeSize"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="XXLarge"
+                android:id="@+id/checkbox_XXLargeSize"/>
+            <CheckBox
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1"                android:layout_height="wrap_content"
+                android:text="XXXLarge"
+                android:id="@+id/checkbox_XXXLargeSize"/>
+            <CheckBox
+                android:onClick="onCheckboxClicked"
+                android:layout_width="0dp"
+                android:layout_weight="1"                android:layout_height="wrap_content"
+                android:text="4XLarge"
+                android:id="@+id/checkbox_4XLargeSize"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gallery"
+            android:layout_gravity="end|right"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/image_capture"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="اضافة منتج جديد"
+            android:id="@+id/btnAdd"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary"
+            android:padding="16dp"/>
+    </LinearLayout>
+
+
+</ScrollView>
