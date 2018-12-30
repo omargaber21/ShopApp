@@ -1,5 +1,6 @@
 package com.example.omar.pushnpull;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,7 +58,7 @@ mAdapter adapter;
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                Current_Item = (Items) adapterView.getItemAtPosition(i);
-               UpdateData(Current_Item);
+               UpdateData(Current_Item,getActivity());
                 return true;
             }
         });
@@ -86,23 +87,24 @@ mAdapter adapter;
         });
 
     }
-    private void UpdateData(final Items current_Item){
+    public void UpdateData(final Items current_Item, final Context context){
 
         String items[]={"تعديل المنتج","مسح المنتج"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Edit Item");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which==0){
-                    Intent update=new Intent(getActivity(),UpdateActivity.class);
-                    update.putExtra("key",Current_Item.getId());
-                    startActivity(update);
-
+                    if(context!=null) {
+                        Intent update = new Intent(context, UpdateActivity.class);
+                        update.putExtra("key", current_Item.getId());
+                        context.startActivity(update);
+                    }
 
                 }
                 else{
-                 mReference.child(Current_Item.getId()).removeValue();
+                 mReference.child(current_Item.getId()).removeValue();
 
                 }
             }

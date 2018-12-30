@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 public class UpdateActivity extends AppCompatActivity {
 TextInputEditText name,price,quantity,size,code;
+String imageurl,Selleremail;
 Button btnUpdate;
 private FirebaseDatabase database=FirebaseDatabase.getInstance();
 private DatabaseReference mReference=database.getReference("items");
@@ -27,9 +28,7 @@ private DatabaseReference mReference=database.getReference("items");
         setContentView(R.layout.activity_update);
         name=findViewById(R.id.item_name);
         price=findViewById(R.id.item_price);
-        quantity=findViewById(R.id.item_quantity);
         btnUpdate=findViewById(R.id.btnUpdate);
-        size=findViewById(R.id.item_size);
         code=findViewById(R.id.item_code);
         ReadData();
         btnUpdate.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +40,7 @@ private DatabaseReference mReference=database.getReference("items");
                 ArrayList<String> item_size=new ArrayList<>();
                 String item_code=code.getText().toString();
                 String key= getIntent().getStringExtra("key");
-                Items item=new Items(key,item_name,item_price,item_size,item_code);
+                Items item=new Items(key,item_name,item_price,item_size,item_code,imageurl,Selleremail);
                 mReference.child(key).setValue(item);
                 finish();
             }
@@ -58,7 +57,8 @@ private DatabaseReference mReference=database.getReference("items");
                      name.setText(item.getName());
                      price.setText(String.valueOf(item.getPrice()));
                      code.setText(item.getCode());
-
+                     imageurl=item.getImageurl();
+                     Selleremail=item.getSelleremail();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

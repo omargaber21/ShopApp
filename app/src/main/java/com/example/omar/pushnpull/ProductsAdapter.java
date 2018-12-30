@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +41,8 @@ public class ProductsAdapter extends ArrayAdapter<Items> {
         ViewCompat.setLayoutDirection(convertView.findViewById(R.id.product_name), ViewCompat.LAYOUT_DIRECTION_RTL);
         addtoBag=convertView.findViewById(R.id.fab);
         addtoBag.setRippleColor(Color.WHITE);
-        TextView name,price,selleremail,size;
+        TextView name,price,selleremail;
+        Spinner size;
         Button increment_quantity,decrement_quantity;
         ImageView imageView;
         name=convertView.findViewById(R.id.product_name);
@@ -69,6 +71,9 @@ public class ProductsAdapter extends ArrayAdapter<Items> {
         });*/
         name.setText(item.getName());
         price.setText(String.valueOf(item.getPrice())+" جنيه");
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(getContext(),R.layout.support_simple_spinner_dropdown_item,item.getSize());
+        size.setAdapter(adapter);
+
        /* quantity.setText(String.valueOf(item.getQuantity()));*/
         selleremail.setText(item.getSelleremail());
         Picasso.get().load(item.getImageurl()).into(imageView);
